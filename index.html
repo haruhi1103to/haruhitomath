@@ -1,0 +1,29 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Game</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #111; }
+    canvas { border: 2px solid #fff; }
+  </style>
+</head>
+<body>
+<canvas id="c" width="600" height="400"></canvas>
+<script>
+  const ctx = document.getElementById('c').getContext('2d');
+  let x = 100, y = 200, dx = 5, dy = 3;
+  function loop() {
+    ctx.clearRect(0, 0, 600, 400);
+    x += dx; y += dy;
+    if (x < 0 || x > 580) dx *= -1;
+    if (y < 0 || y > 380) dy *= -1;
+    ctx.fillStyle = '#0f0';
+    ctx.fillRect(x, y, 20, 20);
+    requestAnimationFrame(loop);
+  }
+  loop();
+</script>
+</body>
+</html>   
